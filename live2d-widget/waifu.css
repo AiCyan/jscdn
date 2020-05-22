@@ -246,7 +246,7 @@
 
 @media (max-width: 640px) {
   #waifu {
-    right: 0 !important;
+    left: 265px !important;
   }
   #waifu #live2d {
     height: 100px !important;
@@ -255,7 +255,7 @@
   #waifu-tips {
     width: 100px !important;
     height: auto !important;
-    margin: -50px !important;
+    margin-top: -50px !important;
     font-size: 12px !important;
     line-height: 12px !important;
     padding: 5px !important;
@@ -263,7 +263,7 @@
   #waifu-tool {
     color: #aaa !important;
     position: absolute !important;
-    right: 102px !important;
+    right: 100px !important;
     top: 0px !important;
     transition: opacity 1s !important;
   }
