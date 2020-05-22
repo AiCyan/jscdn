@@ -12,6 +12,7 @@
   transition: margin-left 1s;
   width: 60px;
   writing-mode: vertical-rl;
+  z-index: 9999999999;
 }
 #waifu-toggle.waifu-toggle-active {
   margin-left: -50px;
@@ -70,8 +71,8 @@
   color: #aaa;
   opacity: 0;
   position: absolute;
-  right: -10px;
-  top: -16px;
+  right: -20px;
+  top: 18px;
   transition: opacity 1s;
 }
 #waifu:hover #waifu-tool {
@@ -244,6 +245,9 @@
 
 
 @media (max-width: 640px) {
+  #waifu {
+    right: 0 !important;
+  }
   #waifu #live2d {
     height: 100px !important;
     width: 100px !important;
@@ -251,7 +255,7 @@
   #waifu-tips {
     width: 100px !important;
     height: auto !important;
-    margin: -30px 5px -30px 5px !important;
+    margin: -50px !important;
     font-size: 12px !important;
     line-height: 12px !important;
     padding: 5px !important;
@@ -259,8 +263,8 @@
   #waifu-tool {
     color: #aaa !important;
     position: absolute !important;
-    right: -20px !important;
-    top: -8px !important;
+    right: 102px !important;
+    top: 0px !important;
     transition: opacity 1s !important;
   }
   #waifu-tool span {
