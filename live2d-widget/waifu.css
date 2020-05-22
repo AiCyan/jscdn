@@ -305,7 +305,7 @@
   }
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   #waifu-toggle {
     background-color: #fa0 !important;
     border-radius: 5px !important;
@@ -366,4 +366,4 @@
   .fa-lg {
     vertical-align: 15% !important;
   }
-}
+} */
