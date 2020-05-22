@@ -1,13 +1,13 @@
 {
 	"mouseover": [{
 		"selector": "#waifu #live2d",
-		"text": ["干嘛呢你，快把手拿开～～", "鼠…鼠标放错地方了！", "你要干嘛呀？", "喵喵喵？", "怕怕(ノ≧∇≦)ノ", "非礼呀！救命！", "这样的话，只能使用武力了！", "我要生气了哦", "不要动手动脚的！", "真…真的是不知羞耻！", "Hentai！"]
+		"text": ["干嘛呢你，快把手拿开～～", "鼠…鼠标放错地方了！", "你要干嘛呀？", "喵喵喵？", "怕怕(ノ≧∇≦)ノ", "非礼呀！救命！", "这样的话，只能使用武力了！", "我要生气了哦", "不要动手动脚的！", "真…真的是不知羞耻！", "He~~~tui！小色鬼", "不要看着我,人家真的很害羞(✿◡‿◡)！"]
 	}, {
 		"selector": "#waifu-tool .fa-comment",
 		"text": ["猜猜我要说些什么？", "我从青蛙王子那里听到了不少人生经验。"]
 	}, {
-		"selector": "#waifu-tool .fa-paper-plane",
-		"text": ["要不要来玩飞机大战？", "这个按钮上写着「不要点击」。", "怎么，你想来和我玩个游戏？", "听说这样可以蹦迪！"]
+		"selector": "#waifu-tool .wechat",
+		"text": ["要不要加我微信呢~", "有什么反馈的可以加我哦~", "这是我的微信~", "微信了了解一下~"]
 	}, {
 		"selector": "#waifu-tool .fa-user-circle",
 		"text": ["你是不是不爱人家了呀，呜呜呜～", "要见见我的姐姐嘛？", "想要看我妹妹嘛？", "要切换看板娘吗？"]
@@ -183,7 +183,50 @@
 	}, {
 		"selector": ".vsubmit",
 		"text": ["输入验证码就可以提交评论啦～"]
-	}],
+	}, {
+		"selector": ".cd-fade-out",
+		"text": ["点他脑阔可以返回至顶部哦~"]
+	}, {
+		"selector": ".sakuraText",
+		"text": ["主题是樱花哦～"]
+	}, {
+		"selector": ".comeBlog",
+		"text": ["欢迎来到我们的博客~"]
+	}, {
+		"selector": ".China",
+		"text": ["我爱你,亲爱的中国~"]
+	}, {
+		"selector": "#busuanzi_container_site_uv",
+		"text": ["这是博客的访客量哦~"]
+	}, {
+		"selector": "#busuanzi_container_site_pv",
+		"text": ["这是博客的总访客量哦~"]
+	}, {
+		"selector": ".sidebar-content",
+		"text": ["需要反馈或是提什么建议点他哦~"]
+	}, {
+		"selector": ".icon-search",
+		"text": ["搜些什么好呢~"]
+	}, {
+		"selector": ".key2",
+		"text": ["Google需要科学上网哦~"]
+	}, {
+		"selector": "#jinrishici-sentence",
+		"text": ["今日是些什么诗句呢~", "这句诗词怎么样呢~", "你细品,你仔细品品~"]
+	}, {
+		"selector": ".top-feature-v2",
+		"text": ["今天的专栏有些什么好东西呢~", "看看专栏有些什么东西~"]
+	}, {
+		"selector": ".float-content",
+		"text": ["一些简单的介绍~", "介绍不在于长短在于它精巧(胡扯ヾ(≧▽≦*)o)~"]
+	}, {
+		"selector": ".aplayer-icon",
+		"text": ["听歌可以舒畅心情是个不错的选择~", "好听的歌都在里面哦~"]
+	}, {
+		"selector": ".aplayer-list-cur",
+		"text": ["喜欢这首嘛~", "不喜欢也不要吐槽哦~"]
+	}
+	],
 	"seasons": [{
 		"date": "01/01",
 		"text": "<span>元旦</span>了呢，新的一年又开始了，今年是{year}年～"
@@ -205,6 +248,9 @@
 	}, {
 		"date": "06/01",
 		"text": "<span>儿童节</span>了呢，快活的时光总是短暂，要是永远长不大该多好啊…"
+	}, {
+		"date": "08/02",
+		"text": "<span>今天是博主的生日呢~</span>要和我博主一起过嘛(✿◕‿◕✿)…"
 	}, {
 		"date": "09/03",
 		"text": "<span>中国人民抗日战争胜利纪念日</span>，铭记历史、缅怀先烈、珍爱和平、开创未来。"
