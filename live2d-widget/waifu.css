@@ -307,63 +307,63 @@
 
 @media (max-width: 640px) {
   #waifu-toggle {
-    background-color: #fa0;
-    border-radius: 5px;
-    bottom: 66px;
+    background-color: #fa0 !important;
+    border-radius: 5px !important;
+    bottom: 66px !important;
     color: #fff;
-    cursor: pointer;
-    font-size: 12px;
-    left: 0;
-    margin-left: -100px;
-    padding: 5px 2px 5px 5px;
-    position: fixed;
-    transition: margin-left 1s;
-    width: 60px;
-    writing-mode: vertical-rl;
+    cursor: pointer !important;
+    font-size: 12px !important;
+    left: 0 !important;
+    margin-left: -100px !important;
+    padding: 5px 2px 5px 5px !important;
+    position: fixed !important;
+    transition: margin-left 1s !important;
+    width: 60px !important;
+    writing-mode: vertical-rl !important;
   }
   #waifu {
-    left: 0;
-    line-height: 0;
-    position: fixed;
-    transform: translateY(3px);
-    transition: transform 0.3s ease-in-out, bottom 3s ease-in-out;
+    left: 0 !important;
+    line-height: 0 !important;
+    position: fixed !important;
+    transform: translateY(3px) !important;
+    transition: transform 0.3s ease-in-out, bottom 3s ease-in-out !important;
     z-index: 1;
   }
   #waifu-tips {
     position: absolute !important;
-    bottom: 215px;
+    bottom: 215px !important;
     width: 100px !important;
-    height: auto;
+    height: auto !important;
     font-size: 5px !important;
-    box-sizing: border-box;
-    padding: 10px 10px;
-    margin: 0px 5px;
+    box-sizing: border-box !important;
+    padding: 10px 10px !important;
+    margin: 0px 5px !important;
   }
   #waifu #live2d {
     cursor: grab;
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    bottom: 145px;
+    height: 100px !important;
+    width: 100px !important;
+    position: absolute !important;
+    bottom: 145px !important;
   }
   #waifu-tool {
-    color: #aaa;
-    opacity: 0;
-    transition: opacity 1s;
-    position: absolute;
-    bottom: 145px;
-    left: 115px;
+    color: #aaa !important;
+    opacity: 0 !important;
+    transition: opacity 1s !important;
+    position: absolute !important;
+    bottom: 145px !important;
+    left: 115px !important;
   }
   #waifu-tool span {
-    color: #7b8c9d;
-    cursor: pointer;
-    display: block;
-    line-height: 23px;
-    text-align: center;
-    transition: color 0.3s;
-    font-size: 14px;
+    color: #7b8c9d !important;
+    cursor: pointer !important;
+    display: block !important;
+    line-height: 23px !important;
+    text-align: center !important;
+    transition: color 0.3s !important;
+    font-size: 14px !important;
   }
   .fa-lg {
-    vertical-align: 15%;
+    vertical-align: 15% !important;
   }
 }
