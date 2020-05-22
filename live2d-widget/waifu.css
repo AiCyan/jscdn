@@ -26,7 +26,7 @@
 	bottom: -1000px;
 	left: 0;
 	line-height: 0;
-	position: fixed;
+	position: absolute;
 	transform: translateY(3px);
 	transition: transform .3s ease-in-out, bottom 3s ease-in-out;
 	z-index: 1;
@@ -67,9 +67,9 @@
 
 #waifu #live2d {
 	cursor: grab;
-	height: 300px;
+	height: 200px;
 	position: relative;
-	width: 300px;
+	width: 200px;
 }
 
 #waifu #live2d:active {
@@ -303,3 +303,21 @@
 		transform: translate(0, 0) rotate(0);
 	}
 }
+
+@media(max-width:640px) {
+	/* #waifu {
+		position: absolute !important;
+	} */
+	#waifu #live2d {
+		cursor: grab;
+		height: 100px;
+		position: relative;
+		width: 100px;
+	}
+	#waifu-tips {
+		position: absolute !important;
+		top: -50px !important;
+		width: 100px !important;
+		font-size: 5px !important;
+	}
+} 
