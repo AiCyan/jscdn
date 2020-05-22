@@ -24,4 +24,3 @@ Add Live2D widget to web page. Compatible with PJAX.
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.5/live2d-widget/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.5/live2d-widget/autoload.js"></script>
 ```
-下载建议直接<code>git clone https://github.com/AiCyan/jscdn.git</code>或去下载[zip](https://github.com/AiCyan/jscdn/releases)
