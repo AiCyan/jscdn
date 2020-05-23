@@ -17,10 +17,10 @@ Add Live2D widget to web page. Compatible with PJAX.
 
 ## 引用
 
-**特别说明：我这个是快捷引用在页面上，项目并不是我的，来源已在上方标明。如果要学习该项目去自行前往来源方学习。**
+**特别说明：我这个是快捷引用在页面上，项目并不是我的，来源已在上方标明。如果要学习该项目请自行前往来源方学习。**
 
 将这一行代码加入 `<head>` 或 `<body>`，即可展现出效果：
 ```xml
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.5/live2d-widget/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.5/live2d-widget/autoload.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.6/live2d-widget/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.6/live2d-widget/autoload.js"></script>
 ```
