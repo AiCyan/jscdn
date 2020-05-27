@@ -350,7 +350,18 @@ function initWidget(config, apiPath = "/") {
   }
 }
 
+// 返回至顶部
 var waifu = document.getElementById("waifu");
 function goTop() {
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
+  // document.body.scrollTop = document.documentElement.scrollTop = 0;
+  cancelAnimationFrame(timer);
+  var timer = requestAnimationFrame(function fn() {
+    var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+    if (oTop > 0) {
+      scrollTo(0, oTop - 1000);
+      timer = requestAnimationFrame(fn);
+    } else {
+      cancelAnimationFrame(timer);
+    }
+  });
 }
