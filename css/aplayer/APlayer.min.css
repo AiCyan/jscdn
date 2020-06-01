@@ -88,6 +88,7 @@
   padding-right: 18px;
   transition: all 0.3s ease;
   max-width: 400px;
+  border-radius: 10px;
 }
 .aplayer.aplayer-fixed .aplayer-lrc {
   display: block;
@@ -126,6 +127,7 @@
 }
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
   width: 66px !important;
+  border-radius: 10px;
 }
 .aplayer.aplayer-fixed.aplayer-narrow .aplayer-miniswitcher .aplayer-icon {
   -webkit-transform: rotateY(0);
