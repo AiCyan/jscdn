@@ -24,3 +24,4 @@ Add Live2D widget to web page. Compatible with PJAX.
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.6/live2d-widget/autoload.js"></script>
 ```
+
