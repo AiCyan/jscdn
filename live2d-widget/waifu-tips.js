@@ -1,8 +1,3 @@
-/*
- * Live2D Widget
- * https://github.com/stevenjoezhang/live2d-widget
- */
-
 function loadWidget(config) {
   let { waifuPath, apiPath, cdnPath } = config;
   let useCDN = false,
@@ -16,16 +11,16 @@ function loadWidget(config) {
   sessionStorage.removeItem("waifu-text");
   document.body.insertAdjacentHTML(
     "beforeend",
-    `<div id="waifu" onclick="goTop();">
+    `<div id="waifu">
 			<div id="waifu-tips"></div>
 			<canvas id="live2d" width="800" height="800"></canvas>
 			<div id="waifu-tool">
-				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-user-circle"></span>
-				<span class="fa fa-lg fa-street-view"></span>
-				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-info-circle"></span>
-				<span class="fa fa-lg fa-times"></span>
+				<span class="iconfont icon-xiaoxi1 fa-comment"></span>
+				<span class="iconfont icon-wode fa-user-circle" title="换模型"></span>
+				<span class="iconfont icon-huanfu fa-street-view" title="换装"></span>
+				<span class="iconfont icon-xiangji fa-camera-retro" title="自拍"></span>
+				<span onclick="goTop();" id="returnTop" class="iconfont icon-fanhuidingbu fa-info-circle" title="置顶"></span>
+				<span class="iconfont icon-guanbi fa-times" title="关闭"></span>
 			</div>
 		</div>`
   );
@@ -50,6 +45,7 @@ function loadWidget(config) {
       "嗨～快来逗我玩吧！",
       "拿小拳拳锤你胸口！",
       "记得把小家加入 Adblock 白名单哦！",
+      "喜欢博主网站的记得收藏哦~(Ctrl+D)",
     ];
   window.addEventListener("mousemove", () => (userAction = true));
   window.addEventListener("keydown", () => (userAction = true));
@@ -93,11 +89,11 @@ function loadWidget(config) {
         Live2D.captureName = "photo.png";
         Live2D.captureFrame = true;
       });
-    document
-      .querySelector("#waifu-tool .fa-info-circle")
-      .addEventListener("click", () => {
-        open("https://github.com/AiCyan/jscdn/tree/master/live2d-widget");
-      });
+    // document
+    //   .querySelector("#waifu-tool .fa-info-circle")
+    //   .addEventListener("click", () => {
+    //     open("https://github.com/AiCyan/jscdn/tree/master/live2d-widget");
+    //   });
     document
       .querySelector("#waifu-tool .fa-times")
       .addEventListener("click", () => {
@@ -112,7 +108,7 @@ function loadWidget(config) {
         }, 3000);
       });
     let devtools = () => {};
-    console.log("%c", devtools);
+    // console.log("%c", devtools);
     devtools.toString = () => {
       showMessage("哈哈，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
     };
@@ -267,7 +263,7 @@ function loadWidget(config) {
       loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
     } else {
       loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
-      console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);
+      console.log(`模型 ${modelId}-${modelTexturesId} 加载完成`);
     }
   }
 
@@ -350,9 +346,10 @@ function initWidget(config, apiPath = "/") {
   }
 }
 
-// 返回至顶部
-var waifu = document.getElementById("waifu");
+// 返回顶部
+var hometop = document.getElementById("returnTop");
 function goTop() {
+  // document.body.scrollTop = document.documentElement.scrollTop = 0;
   cancelAnimationFrame(timer);
   var timer = requestAnimationFrame(function fn() {
     var oTop = document.body.scrollTop || document.documentElement.scrollTop;

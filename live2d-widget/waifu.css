@@ -86,6 +86,9 @@
   text-align: center;
   transition: color 0.3s;
 }
+#waifu-tool span .iconfont {
+    font-size: 20px;
+}
 #waifu-tool span:hover {
   color: #0684bd;
   /* #34495e */
