@@ -249,7 +249,7 @@
 
 @media (max-width: 640px) {
   #waifu {
-    left: 275px !important;
+    left: 280px !important;
   }
   #waifu #live2d {
     height: 100px !important;
@@ -274,6 +274,9 @@
     color: #7b8c9d !important;
     display: block !important;
     line-height: 22px !important;
+  }
+  #waifu-tool span .iconfont {
+    font-size: 20px !important;
   }
   .fa-lg {
     font-size: 18px !important;
