@@ -1,5 +1,5 @@
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.2/live2d-widget/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.3/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -26,7 +26,7 @@ function loadExternalResource(url, type) {
 if (screen.width >= 10) {
   Promise.all([
     loadExternalResource(live2d_path + "waifu.css", "css"),
-    loadExternalResource(live2d_path + "font-awesome.css", "css"),
+    // loadExternalResource(live2d_path + "font-awesome.css", "css"),
     loadExternalResource(live2d_path + "iconfont.css", "css"),
     loadExternalResource(live2d_path + "live2d.min.js", "js"),
     loadExternalResource(live2d_path + "waifu-tips.js", "js"),
