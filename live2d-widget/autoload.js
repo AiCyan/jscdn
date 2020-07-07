@@ -1,6 +1,6 @@
 // 注意：live2d_path 参数应使用绝对路径
 const live2d_path =
-  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.4/live2d-widget/";
+  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.5/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -66,25 +66,26 @@ if (screen.width >= 10) {
 // 拖拽
 window.onload = function () {
   var getDiv = document.getElementById("waifu");
+  limitDrag(getDiv);
   function limitDrag(node) {
     node.onmousedown = function (ev) {
       var e = ev || window.event;
-      var offsetX = e.clientX - this.offsetLeft;
-      var offsetY = e.clientY - this.offsetTop;
+      var offsetX = e.pageX - this.offsetLeft;
+      var offsetY = e.pageY - this.offsetTop;
       document.onmousemove = function (ev) {
         var e = ev || window.event;
-        var l = e.clientX - offsetX;
-        var t = e.clientY - offsetY;
+        var l = e.pageX - offsetX;
+        var t = e.pageY - offsetY;
         if (l <= 0) {
           l = 0;
         }
         var windowWidth =
           document.documentElement.clientWidth || document.body.clientWidth;
-        if (l >= windowWidth - node.offsetWidth) {
-          l = windowWidth - node.offsetWidth;
+        if (l >= windowWidth - node.offsetWidth - 30) {
+          l = windowWidth - node.offsetWidth - 30;
         }
-        if (t <= 0) {
-          t = 0;
+        if (t <= 30) {
+          t = 30;
         }
         var windowHeight =
           document.documentElement.clientHeight || document.body.clientHeight;
@@ -99,5 +100,4 @@ window.onload = function () {
       };
     };
   }
-  limitDrag(getDiv);
 };
