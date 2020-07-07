@@ -1,5 +1,6 @@
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.3/live2d-widget/";
+const live2d_path =
+  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.4/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -65,20 +66,38 @@ if (screen.width >= 10) {
 // 拖拽
 window.onload = function () {
   var getDiv = document.getElementById("waifu");
-
-  getDiv.onmousedown = function (ev) {
-    //解决event浏览器的兼容性问题
-    var e = ev || window.event;
-    var offsetX = e.pageX - this.offsetLeft;
-    var offsetY = e.pageY - this.offsetTop;
-
-    document.onmousemove = function (ev) {
+  function limitDrag(node) {
+    node.onmousedown = function (ev) {
       var e = ev || window.event;
-      getDiv.style.left = e.pageX - offsetX + "px";
-      getDiv.style.top = e.pageY - offsetY + "px";
+      var offsetX = e.clientX - this.offsetLeft;
+      var offsetY = e.clientY - this.offsetTop;
+      document.onmousemove = function (ev) {
+        var e = ev || window.event;
+        var l = e.clientX - offsetX;
+        var t = e.clientY - offsetY;
+        if (l <= 0) {
+          l = 0;
+        }
+        var windowWidth =
+          document.documentElement.clientWidth || document.body.clientWidth;
+        if (l >= windowWidth - node.offsetWidth) {
+          l = windowWidth - node.offsetWidth;
+        }
+        if (t <= 0) {
+          t = 0;
+        }
+        var windowHeight =
+          document.documentElement.clientHeight || document.body.clientHeight;
+        if (t >= windowHeight - node.offsetHeight) {
+          t = windowHeight - node.offsetHeight;
+        }
+        node.style.left = l + "px";
+        node.style.top = t + "px";
+      };
+      document.onmouseup = function () {
+        document.onmousemove = null;
+      };
     };
-  };
-  document.onmouseup = function () {
-    document.onmousemove = null;
-  };
+  }
+  limitDrag(getDiv);
 };

@@ -45,7 +45,7 @@ function loadWidget(config) {
       "嗨～快来逗我玩吧！",
       "拿小拳拳锤你胸口！",
       "记得把小家加入 Adblock 白名单哦！",
-      "喜欢博主网站的记得收藏哦~(Ctrl+D)",
+      "喜欢博主网站的记得收藏哦(Ctrl+D)",
     ];
   window.addEventListener("mousemove", () => (userAction = true));
   window.addEventListener("keydown", () => (userAction = true));
@@ -168,7 +168,7 @@ function loadWidget(config) {
     fetch("https://v1.hitokoto.cn")
       .then((response) => response.json())
       .then((result) => {
-        let text = `这句一言来自 <span>「${result.from}」</span>，是 <span>${result.creator}</span> 在 hitokoto.cn 投稿的。`;
+        let text = `这句一言来自 <span>「${result.from}」</span>`;/*，是 <span>${result.creator}</span> 在 hitokoto.cn 投稿的。*/
         showMessage(result.hitokoto, 6000, 9);
         setTimeout(() => {
           showMessage(text, 4000, 9);
@@ -349,7 +349,6 @@ function initWidget(config, apiPath = "/") {
 // 返回顶部
 var hometop = document.getElementById("returnTop");
 function goTop() {
-  // document.body.scrollTop = document.documentElement.scrollTop = 0;
   cancelAnimationFrame(timer);
   var timer = requestAnimationFrame(function fn() {
     var oTop = document.body.scrollTop || document.documentElement.scrollTop;
