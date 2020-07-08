@@ -1,6 +1,6 @@
 // 注意：live2d_path 参数应使用绝对路径
 const live2d_path =
-  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.5/live2d-widget/";
+  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.6/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -70,12 +70,12 @@ window.onload = function () {
   function limitDrag(node) {
     node.onmousedown = function (ev) {
       var e = ev || window.event;
-      var offsetX = e.pageX - this.offsetLeft;
-      var offsetY = e.pageY - this.offsetTop;
+      var offsetX = e.clientX - this.offsetLeft;
+      var offsetY = e.clientY - this.offsetTop;
       document.onmousemove = function (ev) {
         var e = ev || window.event;
-        var l = e.pageX - offsetX;
-        var t = e.pageY - offsetY;
+        var l = e.clientX - offsetX;
+        var t = e.clientY - offsetY;
         if (l <= 0) {
           l = 0;
         }
