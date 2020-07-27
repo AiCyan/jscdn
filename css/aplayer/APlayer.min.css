@@ -63,11 +63,11 @@
 }
 .aplayer.aplayer-fixed {
   position: fixed;
-  bottom: 254px;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: 0;
-  z-index: 99;
+  z-index: 9999999999;
   overflow: visible;
   max-width: 400px;
   box-shadow: none;
@@ -79,7 +79,7 @@
 }
 .aplayer.aplayer-fixed .aplayer-body {
   position: fixed;
-  bottom: 254px;
+  bottom: 0;
   left: 0;
   right: 0;
   margin: 0;
@@ -702,4 +702,3 @@
     transform: rotate(1turn);
   }
 }
-/*# sourceMappingURL=APlayer.min.css.map*/
