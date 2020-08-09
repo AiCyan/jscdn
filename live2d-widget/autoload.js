@@ -1,5 +1,5 @@
 // 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1/live2d-widget/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1.1/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -41,6 +41,7 @@ window.onload = function () {
   var getDiv = document.getElementById("waifu");
   drag(getDiv);
 }
+
 function drag(node) {
   var flag = false,
     curX = 0,
@@ -55,6 +56,7 @@ function drag(node) {
     winH = document.documentElement.clientHeight || document.body.clientHeight,
     maxW = winW - node.offsetWidth,
     maxH = winH - node.offsetHeight;
+
   function down() {
     flag = true;
     var touch;
@@ -68,6 +70,7 @@ function drag(node) {
     nodeX = node.offsetLeft;
     nodeY = node.offsetTop;
   }
+
   function move() {
     if (flag) {
       var touch;
@@ -84,11 +87,18 @@ function drag(node) {
       limY = limt(limY, 0, maxH);
       node.style.left = limX + "px";
       node.style.top = limY + "px";
-      document.addEventListener('touchmove', event => event.preventDefault(), {
-        passive: false
-      })
+      document.addEventListener('touchmove', function (event) {
+        // 判断默认行为是否可以被禁用
+        if (event.cancelable) {
+          // 判断默认行为是否已经被禁用
+          if (!event.defaultPrevented) {
+            event.preventDefault();
+          }
+        }
+      }, false)
     }
   }
+
   function limt(cur, min, max) {
     if (cur < min) {
       return min;
@@ -98,6 +108,7 @@ function drag(node) {
       return cur;
     }
   }
+
   function end() {
     flag = false;
   }
