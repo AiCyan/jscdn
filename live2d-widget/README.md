@@ -12,8 +12,9 @@ Add Live2D widget to web page. Compatible with PJAX.
 
 ## 示例 Demo
 
-在[米米的博客](https://zhangshuqiao.org)的左下角可查看效果。（注：以下人物模型仅供展示之用，本仓库并不包含任何模型。）
-在[AiCyan的博客](https://cm.aicyan.top)的左下角可查看效果。
+>在[米米的博客](https://zhangshuqiao.org)的左下角可查看效果。(注：以下人物模型仅供展示之用，本仓库并不包含任何模型。)
+>
+>在[Ai的博客](https://cm.aicyan.top)的左下角可查看效果。
 
 ## 引用
 
@@ -21,7 +22,6 @@ Add Live2D widget to web page. Compatible with PJAX.
 
 将这一行代码加入 `<head>` 或 `<body>`，即可展现出效果：
 ```xml
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/AiCyan/jscdn@2.6/live2d-widget/autoload.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AiCyan/img@latest/live2D/autoload.js"></script>
 ```
 

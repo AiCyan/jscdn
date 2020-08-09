@@ -1,6 +1,5 @@
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path =
-  "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@4.6/live2d-widget/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@latest/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -35,69 +34,96 @@ if (screen.width >= 10) {
     initWidget({
       waifuPath: live2d_path + "waifu-tips.json",
       apiPath: "https://live2d.fghrsh.net/api/",
-      //cdnPath: "https://cdn.jsdelivr.net/gh/fghrsh/live2d_api/"
     });
   });
 }
-// initWidget 第一个参数为 waifu-tips.json 的路径，第二个参数为 API 地址
-// API 后端可自行搭建，参考 https://github.com/fghrsh/live2d_api
-// 初始化看板娘会自动加载指定目录下的 waifu-tips.json
-
-// console.log(`
-//   く__,.ヘヽ.        /  ,ー､ 〉
-//            ＼ ', !-─‐-i  /  /´
-//            ／｀ｰ'       L/／｀ヽ､
-//          /   ／,   /|   ,   ,       ',
-//        ｲ   / /-‐/  ｉ  L_ ﾊ ヽ!   i
-//         ﾚ ﾍ 7ｲ｀ﾄ   ﾚ'ｧ-ﾄ､!ハ|   |
-//           !,/7 '0'     ´0iソ|    |
-//           |.从"    _     ,,,, / |./    |
-//           ﾚ'| i＞.､,,__  _,.イ /   .i   |
-//             ﾚ'| | / k_７_/ﾚ'ヽ,  ﾊ.  |
-//               | |/i 〈|/   i  ,.ﾍ |  i  |
-//              .|/ /  ｉ：    ﾍ!    ＼  |
-//               kヽ>､ﾊ    _,.ﾍ､    /､!
-//               !'〈//｀Ｔ´', ＼ ｀'7'ｰr'
-//               ﾚ'ヽL__|___i,___,ンﾚ|ノ
-//                   ﾄ-,/  |___./
-//                   'ｰ'    !_,.:
-// `);
 
 // 拖拽
 window.onload = function () {
   var getDiv = document.getElementById("waifu");
-  limitDrag(getDiv);
-  function limitDrag(node) {
-    node.onmousedown = function (ev) {
-      var e = ev || window.event;
-      var offsetX = e.clientX - this.offsetLeft;
-      var offsetY = e.clientY - this.offsetTop;
-      document.onmousemove = function (ev) {
-        var e = ev || window.event;
-        var l = e.clientX - offsetX;
-        var t = e.clientY - offsetY;
-        if (l <= 0) {
-          l = 0;
-        }
-        var windowWidth =
-          document.documentElement.clientWidth || document.body.clientWidth;
-        if (l >= windowWidth - node.offsetWidth - 30) {
-          l = windowWidth - node.offsetWidth - 30;
-        }
-        if (t <= 30) {
-          t = 30;
-        }
-        var windowHeight =
-          document.documentElement.clientHeight || document.body.clientHeight;
-        if (t >= windowHeight - node.offsetHeight) {
-          t = windowHeight - node.offsetHeight;
-        }
-        node.style.left = l + "px";
-        node.style.top = t + "px";
-      };
-      document.onmouseup = function () {
-        document.onmousemove = null;
-      };
-    };
+  drag(getDiv);
+}
+
+function drag(node) {
+  var flag = false,
+    curX = 0,
+    curY = 0,
+    nodeX = 0,
+    nodeY = 0,
+    absX = 0,
+    absY = 0,
+    limX = 0,
+    limY = 0,
+    winW = document.documentElement.clientWidth || document.body.clientWidth,
+    winH = document.documentElement.clientHeight || document.body.clientHeight,
+    maxW = winW - node.offsetWidth,
+    maxH = winH - node.offsetHeight;
+
+  function down() {
+    flag = true;
+    var touch;
+    if (event.touches) {
+      touch = event.touches[0];
+    } else {
+      touch = event;
+    }
+    curX = touch.clientX;
+    curY = touch.clientY;
+    nodeX = node.offsetLeft;
+    nodeY = node.offsetTop;
   }
-};
+
+  function move() {
+    if (flag) {
+      var touch;
+      if (event.touches) {
+        touch = event.touches[0];
+      } else {
+        touch = event;
+      }
+      absX = touch.clientX - curX;
+      absY = touch.clientY - curY;
+      limX = nodeX + absX;
+      limY = nodeY + absY;
+      limX = limt(limX, 0, maxW);
+      limY = limt(limY, 0, maxH);
+      node.style.left = limX + "px";
+      node.style.top = limY + "px";
+      document.addEventListener('touchmove', event => event.preventDefault(), {
+        passive: false
+      })
+    }
+  }
+
+  function limt(cur, min, max) {
+    if (cur < min) {
+      return min;
+    } else if (cur >= max) {
+      return max;
+    } else {
+      return cur;
+    }
+  }
+
+  function end() {
+    flag = false;
+  }
+  node.addEventListener("mousedown", function () {
+    down();
+  }, false);
+  node.addEventListener("touchstart", function () {
+    down();
+  }, false)
+  node.addEventListener("mousemove", function () {
+    move();
+  }, false);
+  node.addEventListener("touchmove", function () {
+    move();
+  }, false)
+  document.body.addEventListener("mouseup", function () {
+    end();
+  }, false);
+  node.addEventListener("touchend", function () {
+    end();
+  }, false);
+}
