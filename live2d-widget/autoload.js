@@ -1,11 +1,10 @@
-// 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@latest/live2d-widget/";
+// 参数应使用绝对路径
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
   return new Promise((resolve, reject) => {
     let tag;
-
     if (type === "css") {
       tag = document.createElement("link");
       tag.rel = "stylesheet";
@@ -22,11 +21,10 @@ function loadExternalResource(url, type) {
   });
 }
 
-// 加载 waifu.css live2d.min.js waifu-tips.js
+// 加载 js、css、json、api
 if (screen.width >= 10) {
   Promise.all([
     loadExternalResource(live2d_path + "waifu.css", "css"),
-    // loadExternalResource(live2d_path + "font-awesome.css", "css"),
     loadExternalResource(live2d_path + "iconfont.css", "css"),
     loadExternalResource(live2d_path + "live2d.min.js", "js"),
     loadExternalResource(live2d_path + "waifu-tips.js", "js"),
@@ -43,7 +41,6 @@ window.onload = function () {
   var getDiv = document.getElementById("waifu");
   drag(getDiv);
 }
-
 function drag(node) {
   var flag = false,
     curX = 0,
@@ -58,7 +55,6 @@ function drag(node) {
     winH = document.documentElement.clientHeight || document.body.clientHeight,
     maxW = winW - node.offsetWidth,
     maxH = winH - node.offsetHeight;
-
   function down() {
     flag = true;
     var touch;
@@ -72,7 +68,6 @@ function drag(node) {
     nodeX = node.offsetLeft;
     nodeY = node.offsetTop;
   }
-
   function move() {
     if (flag) {
       var touch;
@@ -94,7 +89,6 @@ function drag(node) {
       })
     }
   }
-
   function limt(cur, min, max) {
     if (cur < min) {
       return min;
@@ -104,7 +98,6 @@ function drag(node) {
       return cur;
     }
   }
-
   function end() {
     flag = false;
   }
