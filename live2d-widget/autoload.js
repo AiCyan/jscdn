@@ -1,5 +1,5 @@
 // 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1.1/live2d-widget/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1.2/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
@@ -88,13 +88,7 @@ function drag(node) {
       node.style.left = limX + "px";
       node.style.top = limY + "px";
       document.addEventListener('touchmove', function (event) {
-        // 判断默认行为是否可以被禁用
-        if (event.cancelable) {
-          // 判断默认行为是否已经被禁用
-          if (!event.defaultPrevented) {
-            event.preventDefault();
-          }
-        }
+        event.preventDefault();
       }, false)
     }
   }
