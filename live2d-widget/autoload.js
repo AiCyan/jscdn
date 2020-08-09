@@ -1,5 +1,5 @@
 // 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1.2/live2d-widget/";
+const live2d_path = "https://cdn.jsdelivr.net/gh/AiCyan/jscdn@5.1.3/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {

@@ -1,5 +1,5 @@
 * {
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 #waifu-toggle {
@@ -37,7 +37,6 @@
   transform: translateY(3px);
   transition: transform 0.3s ease-in-out, bottom 3s ease-in-out;
   z-index: 999;
-  touch-action: pan-y;
 }
 
 #waifu:hover {
