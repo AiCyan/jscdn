@@ -5308,15 +5308,14 @@ function uploadimg(file) {
   var dir1 = nameofimg.slice(0, 2);
   var dir2 = nameofimg.slice(2, 4);
   var picurl = "https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-img/" + dir1 + "/" + dir2 + "/" + nameofimg;
-  var settings = {
-    url: "https://api.github.com/repos/Artitalk/Artitalk-img/contents/" + dir1 + "/" + dir2 + "/" + nameofimg,
-    method: "PUT",
-    timeout: 0,
-    async: true,
-    headers: {
-      Authorization: mamato,
-      "Content-Type": "text/plain",
-    },
+  var settings = { url: "https://api.github.com/repos/Artitalk/Artitalk-img/contents/" + dir1 + "/" + dir2 + "/" + nameofimg,
+      method: "PUT",
+      timeout: 0,
+      async: true,
+      headers: {
+        Authorization: mamato,
+        "Content-Type": "text/plain",
+      },
     data: '{\r\n  "message": "' +
       window.location.host +
       '",\r\n  "content": "' +
@@ -5410,17 +5409,17 @@ var sting =
         </div>
     </div>
     <div class="power">
-        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="artitalk(); " title="发说说">📝</div>
-        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="myimg.click()" title="上传图片">📁</div>
-        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="swtichuser()" title="登录">👨‍🚀</div>
+        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="artitalk(); " title="发布说说">✍️</div>
+        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="myimg.click()" title="上船图片">🚢</div>
+        <div style="font-size: 25px;display: inline; cursor: pointer" onclick="swtichuser()" title="登录">👤</div>
     </div>
   </div>
   <input type="file" id="myimg" onchange="imgChange(this)" style="visibility: hidden;" accept="image/png,image/gif,image/jpeg" />
   <div id="shade" class="c1 hide"></div>
   <div id="modal" class="c2 hide">
       <center>
-          <p>账号：<input type="text" class="shuoshuo_input_log" id="username" autocomplete="off" placeholder="请输入账号" /></p>
-          <p>密码：<input type="password" class="shuoshuo_input_log" id="pwd" autocomplete="off" placeholder="请输入密码" /></p>
+          <p>用户：<input type="text" class="shuoshuo_input_log" id="username" autocomplete="off" /></p>
+          <p>密码：<input type="password" class="shuoshuo_input_log" id="pwd" autocomplete="off" /></p>
           <p>
               <input type="button" value="登录" class="button" onclick="Login();">&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="button" value="取消" class="button" onclick="Hide();">
@@ -5499,7 +5498,7 @@ if (lazy == 0) {
 } else {
   document.getElementById("lazy").innerHTML = lazys;
 }
-var string = `<ul class="cbp_tmtimeline" id="maina" pagesize="${per}">`;
+var string = '<ul class="cbp_tmtimeline" id="maina" pagesize=' + per + ">";
 var pos = "";
 var oss = "";
 $.ajaxSettings.async = false;
@@ -5641,23 +5640,22 @@ function seecontent() {
         this.p(d.getSeconds());
       var li = document.createElement("li");
       var cc =
-        `
-          <li>
-              <span class="shuoshuo_author_img">
-                  <img src="${touimg}" class="avatar avatar-48" width="48" height="48">
-              </span>
-              <span class="cbp_tmlabel">
-                  <div class="delete_right" title="删除" onclick="shuoshuo_delete('${did}')">🌸</div>
-                  <p>${uncle}</p>
-                  <p class="shuoshuo_time">
-                      <span title="发送平台">✒️ ${OS} 发送</span>
-                      <span style="float:right;" title="发送时间"> 🕗 ${resDate} ${resTime}</span>
-                  </p>
-              </span>
-          </li>
-      </ul>`;
+        `<li>
+            <span class="shuoshuo_author_img">
+                <img src="${touimg}" class="avatar avatar-48" width="48" height="48">
+            </span>
+            <span class="cbp_tmlabel">
+                <div class="delete_right" title="删除" onclick="shuoshuo_delete('${did}')">🍭</div>
+                <p>${uncle}</p>
+                <p class="shuoshuo_time">
+                    <span style="" title="发送平台">✒️ ${OS} 发送</span>
+                    <span style="float:right;" title="发送时间"> ⏱️ ${resDate} ${resTime}</span>
+                </p>
+            </span>
+        </li>`;
       string += cc;
     });
+    string += "</ul>";
     document.getElementById("ccontent").innerHTML = string;
     ok();
     $.showMore(".cbp_tmtimeline");
@@ -5670,7 +5668,8 @@ function artitalk() {
   if (currentUser) {
     $(".shuoshuo_active").fadeIn();
   } else {
-    document.getElementById("logw").innerHTML = "<center><pre><code>请先登录</code></pre></center>";
+    document.getElementById("logw").innerHTML =
+      "<center><pre><code>请先登录</code></pre></center>";
     Show();
   }
 }
@@ -5693,7 +5692,8 @@ function Login() {
       location.reload();
     },
     function (error) {
-      document.getElementById("logw").innerHTML = "<center><pre><code>账号或密码错误</code></pre></center>";
+      document.getElementById("logw").innerHTML =
+        "<center><pre><code>登陆失败，请检查用户名及密码是否正确</code></pre></center>";
     }
   );
 }
@@ -5714,7 +5714,8 @@ function swtichuser() {
   var currentUser = AV.User.current();
   if (currentUser) {
     document.getElementById("userinfo").classList.remove("hide");
-    document.getElementById("status").innerHTML = "已登录:\t" + currentUser.attributes.username;
+    document.getElementById("status").innerHTML =
+      "已登录:\t" + currentUser.attributes.username;
     $("#tui").show();
   } else {
     document.getElementById("modal").classList.remove("hide");
@@ -5762,7 +5763,6 @@ function really_shanchu(id) {
   );
 }
 
-// 修改头像
 $("#touxiang").focus(function () {
   if (
     $("#touxiang").val() ==
