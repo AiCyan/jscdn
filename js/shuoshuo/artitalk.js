@@ -5307,15 +5307,27 @@ function uploadimg(file) {
   var nameofimg = sha1(base64url) + ".png";
   var dir1 = nameofimg.slice(0, 2);
   var dir2 = nameofimg.slice(2, 4);
-  var picurl = "https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-img/" + dir1 + "/" + dir2 + "/" + nameofimg;
-  var settings = { url: "https://api.github.com/repos/Artitalk/Artitalk-img/contents/" + dir1 + "/" + dir2 + "/" + nameofimg,
-      method: "PUT",
-      timeout: 0,
-      async: true,
-      headers: {
-        Authorization: mamato,
-        "Content-Type": "text/plain",
-      },
+  var picurl =
+    "https://cdn.jsdelivr.net/gh/Artitalk/Artitalk-img/" +
+    dir1 +
+    "/" +
+    dir2 +
+    "/" +
+    nameofimg;
+  var settings = {
+    url: "https://api.github.com/repos/Artitalk/Artitalk-img/contents/" +
+      dir1 +
+      "/" +
+      dir2 +
+      "/" +
+      nameofimg,
+    method: "PUT",
+    timeout: 0,
+    async: true,
+    headers: {
+      Authorization: mamato,
+      "Content-Type": "text/plain",
+    },
     data: '{\r\n  "message": "' +
       window.location.host +
       '",\r\n  "content": "' +
@@ -5334,7 +5346,7 @@ function uploadimg(file) {
         x = document.getElementById("neirong").value;
         document.getElementById("neirong").value = x.replace(
           "![](上传ing)",
-          "(上传失败,可能是网络原因)"
+          "(上传失败，若非网络原因，请联系Artitalk开发人员)"
         );
       }
     },
@@ -5418,8 +5430,8 @@ var sting =
   <div id="shade" class="c1 hide"></div>
   <div id="modal" class="c2 hide">
       <center>
-          <p>用户：<input type="text" class="shuoshuo_input_log" id="username" autocomplete="off" /></p>
-          <p>密码：<input type="password" class="shuoshuo_input_log" id="pwd" autocomplete="off" /></p>
+          <p>账号：<input type="text" class="shuoshuo_input_log" id="username" autocomplete="off" placeholder="请输入账号" /></p>
+          <p>密码：<input type="password" class="shuoshuo_input_log" id="pwd" autocomplete="off" placeholder="请输入密码" /></p>
           <p>
               <input type="button" value="登录" class="button" onclick="Login();">&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="button" value="取消" class="button" onclick="Hide();">
@@ -5514,7 +5526,6 @@ if (document.all) {
 } else {
   window.addEventListener("load", seecontent(), false);
 }
-
 function ok() {
   var cbp_tmtimeline = function ($children, n) {
     var $hiddenChildren = $children.filter(":hidden");
@@ -5547,18 +5558,15 @@ function ok() {
     });
   };
 }
-
 function p(s) {
   return s < 10 ? "0" + s : s;
 }
-
 function preview() {
   var pre = document.getElementById("neirong").value;
   var converter = new showdown.Converter(),
     html = converter.makeHtml(pre);
   document.getElementById("preview").innerHTML = html;
 }
-
 function savecontent() {
   var img3;
   var currentUser = AV.User.current();
@@ -5640,19 +5648,24 @@ function seecontent() {
         this.p(d.getSeconds());
       var li = document.createElement("li");
       var cc =
-        `<li>
-            <span class="shuoshuo_author_img">
-                <img src="${touimg}" class="avatar avatar-48" width="48" height="48">
-            </span>
-            <span class="cbp_tmlabel">
-                <div class="delete_right" title="删除" onclick="shuoshuo_delete('${did}')">🍭</div>
-                <p>${uncle}</p>
-                <p class="shuoshuo_time">
-                    <span style="" title="发送平台">✒️ ${OS} 发送</span>
-                    <span style="float:right;" title="发送时间"> ⏱️ ${resDate} ${resTime}</span>
-                </p>
-            </span>
-        </li>`;
+        '<li><span class="shuoshuo_author_img"><img src="' +
+        touimg +
+        '"class="avatar avatar-48" width="48" height="48"></span><span class="cbp_tmlabel" ><div ' +
+        yincang +
+        ' class="delete_right" title="删除" onclick="shuoshuo_delete(\'' +
+        did +
+        "')\">🍭</div></div>" +
+        uncle +
+        '<p class="shuoshuo_time">' +
+        '<span style="">✒️ 由 ' +
+        OS +
+        ' 发表</span><span style="float:right;">' +
+        " ⏱️ " +
+        resDate +
+        " " +
+        resTime +
+        "" +
+        "</p></span></span></li>";
       string += cc;
     });
     string += "</ul>";
@@ -5693,7 +5706,7 @@ function Login() {
     },
     function (error) {
       document.getElementById("logw").innerHTML =
-        "<center><pre><code>登陆失败，请检查用户名及密码是否正确</code></pre></center>";
+        "<center><pre><code>账号或密码错误</code></pre></center>";
     }
   );
 }
