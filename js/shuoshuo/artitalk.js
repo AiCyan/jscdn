@@ -5499,7 +5499,7 @@ if (lazy == 0) {
 } else {
   document.getElementById("lazy").innerHTML = lazys;
 }
-var string = "";
+var string = `<ul class="cbp_tmtimeline" id="maina" pagesize="${per}">`;
 var pos = "";
 var oss = "";
 $.ajaxSettings.async = false;
@@ -5641,7 +5641,7 @@ function seecontent() {
         this.p(d.getSeconds());
       var li = document.createElement("li");
       var cc =
-        `<ul class="cbp_tmtimeline" id="maina" pagesize="${per}">
+        `
           <li>
               <span class="shuoshuo_author_img">
                   <img src="${touimg}" class="avatar avatar-48" width="48" height="48">
@@ -5656,7 +5656,7 @@ function seecontent() {
               </span>
           </li>
       </ul>`;
-      string = cc;
+      string += cc;
     });
     document.getElementById("ccontent").innerHTML = string;
     ok();
